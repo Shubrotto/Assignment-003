@@ -35,17 +35,21 @@ startBtn.addEventListener("click", () => {
   }
 });
 
-const handleInput = (e) => {
-  // e.preventDefault();
-  const value = e.target.value;
+// var array = [];
 
-  const handleFiltered = () => {
-    location.onmessage = ``;
-  };
-  searchBtn.addEventListener("click", handleFiltered);
-};
+// Input.addEventListener("keyup", () => {
+//   let search = this.ariaValueMax.toLowerCase();
 
-Input.addEventListener("change", handleInput);
+//   newArray = array.filter((val) => {
+//     if (
+//       val.id.includes(search) ||
+//       val.title.includes(search) ||
+//       val.desc.includes(search)
+//     ) {
+//       let newObj = { id: val.id, title: val.title, desc: val.desc };
+//     }
+//   });
+// });
 
 // console.log(document.querySelector(".demo"));
 // startBtn.addEventListener("click", () => {
