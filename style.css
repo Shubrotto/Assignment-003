@@ -1,0 +1,85 @@
+body {
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+}
+
+#start_btn {
+  margin: 0 auto;
+  display: flex;
+  padding: 9px 15px;
+  font-size: 14px;
+  border: 1px solid lightblue;
+  cursor: pointer;
+}
+
+#start_btn:hover {
+  background: rgb(122, 194, 218);
+  color: white;
+}
+
+.search_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0 20px 0;
+  position: absolute;
+  top: 0;
+  right: 5%;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+}
+
+.input h4 {
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.input input,
+.input input:focus {
+  border: 1px solid teal;
+  outline: none;
+  padding: 5px 10px;
+}
+
+.search i {
+  background: teal;
+  font-size: 18px;
+  padding: 5px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.demo {
+  width: 90%;
+  padding: 10px 5px;
+  margin: 0 auto;
+  white-space: normal;
+}
+
+.demo_none {
+  display: none;
+}
+
+.table_head {
+  background: lightgray;
+  padding: 5px;
+}
+
+.table_head tr {
+  padding: 5px;
+}
+
+.table_row:nth-child(even) {
+  background: lightblue;
+}
+
+.table_row:nth-child(odd) {
+  background: lightpink;
+}
