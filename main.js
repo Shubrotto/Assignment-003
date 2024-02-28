@@ -1,10 +1,12 @@
 let w;
 const startBtn = document.querySelector("#start_btn");
+const hideBtn = document.querySelector("#hide_btn");
 const Input = document.querySelector("#input");
 const searchBtn = document.querySelector("search");
 
 startBtn.addEventListener("click", () => {
-  startBtn.innerHTML = startBtn.innerHTML ? "Hide Data" : "Get Data";
+  startBtn.style.display = "none";
+  hideBtn.style.display = "flex";
   if (typeof Worker !== "undefined") {
     if (typeof w == "undefined") {
       console.log("worker start working");
@@ -13,7 +15,8 @@ startBtn.addEventListener("click", () => {
     w.onmessage = function (event) {
       console.log(`====== event =====`, event.data);
       const Div = document.querySelector(".demo");
-      Div.innerHTML = `<table>
+      Div.innerHTML = `
+      <table>
       <thead class="table_head">
       <tr>
       <th>Id</th>
@@ -28,40 +31,45 @@ startBtn.addEventListener("click", () => {
               <td>${d.title}</td>
               <td>${d.body}</td>
             </tr>`
-      )}</tbody></table>`;
+      )}</tbody>
+      </table>
+      `;
     };
   } else {
     alert("browser does not supported");
   }
 });
 
-// var array = [];
+hideBtn.addEventListener("click", () => {
+  const Div = document.querySelector(".demo");
+  if (typeof Worker !== "undefined") {
+    w.terminate();
+    w = "undefined";
+    console.log("worker stoped working");
+    hideBtn.style.display = "none";
+    Div.style.display = "none";
+  } else {
+    alert("This browser does not supported");
+  }
+});
 
-// Input.addEventListener("keyup", () => {
-//   let search = this.ariaValueMax.toLowerCase();
+var array = [];
+Input.addEventListener("keyup", (e) => {
+  let search = this.value.toLowerCase();
 
-//   newArray = array.filter((val) => {
-//     if (
-//       val.id.includes(search) ||
-//       val.title.includes(search) ||
-//       val.desc.includes(search)
-//     ) {
-//       let newObj = { id: val.id, title: val.title, desc: val.desc };
-//     }
-//   });
-// });
+  // console.log(e.target.name);
 
-// console.log(document.querySelector(".demo"));
-// startBtn.addEventListener("click", () => {
-//   startBtn.innerHTML = "Get Data";
-//   if (typeof Worker !== "undefined") {
-//     w.terminate();
-//     w = "undefined";
-//     console.log("worker stoped working");
-//   } else {
-//     alert("This browser does not supported");
-//   }
-// });
+  newArray = array.filter((val) => {
+    if (
+      val.id.includes(search) ||
+      val.title.includes(search) ||
+      val.desc.includes(search)
+    ) {
+      let newObj = { id: val.id, title: val.title, desc: val.desc };
+      return newObj;
+    }
+  });
+});
 
 // console.log("object 1");
 // setTimeout(() => {
